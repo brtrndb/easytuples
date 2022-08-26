@@ -17,6 +17,8 @@ description "Easy Tuples in Java"
 
 dependencies {
     // Main dependencies (Api, Implementation, Compile, Runtime, Annotation).
+    compileOnly("org.jetbrains:annotations:23.0.0")
+    annotationProcessor("org.jetbrains:annotations:23.0.0")
 
     // Dev dependencies (Api, Implementation, Compile, Runtime, Annotation).
 
