@@ -1,0 +1,53 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
+plugins {
+    id 'idea'
+    id 'java'
+    id 'java-library'
+}
+
+repositories {
+    mavenCentral()
+}
+
+group 'tech.brtrndb'
+version 'v0.0.0'
+description "Easy Tuples in Java"
+
+dependencies {
+    // Main dependencies (Api, Implementation, Compile, Runtime, Annotation).
+
+    // Dev dependencies (Api, Implementation, Compile, Runtime, Annotation).
+
+    // Test dependencies (Api, Implementation, Compile, Runtime, Annotation).
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.0")
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+
+    withJavadocJar()
+    withSourcesJar()
+}
+
+compileJava {
+    options.warnings true
+    options.deprecation true
+    options.compilerArgs = ['-Xlint:deprecation']
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events = [/*TestLogEvent.STARTED,*/ TestLogEvent.PASSED, TestLogEvent.SKIPPED, TestLogEvent.FAILED]
+        exceptionFormat TestExceptionFormat.FULL
+        showStandardStreams true
+    }
+
+    ignoreFailures true
+}
