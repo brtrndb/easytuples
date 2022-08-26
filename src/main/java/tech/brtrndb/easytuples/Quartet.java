@@ -25,6 +25,41 @@ public class Quartet<A, B, C, D> extends Trio<A, B, C> implements Value3<D> {
     return Quartet.SIZE;
   }
 
+  @Override
+  public Quartet<A, B, C, D> toQuartet() {
+    return new Quartet<>(this.v0, this.v1, this.v2, this.v3);
+  }
+
+  @Override
+  public Quintet<A, B, C, D, ?> toQuintet() {
+    return new Quintet<>(this.v0, this.v1, this.v2, this.v3, null);
+  }
+
+  @Override
+  public Sextet<A, B, C, D, ?, ?> toSextet() {
+    return new Sextet<>(this.v0, this.v1, this.v2, this.v3, null, null);
+  }
+
+  @Override
+  public Septet<A, B, C, D, ?, ?, ?> toSeptet() {
+    return new Septet<>(this.v0, this.v1, this.v2, this.v3, null, null, null);
+  }
+
+  @Override
+  public Octet<A, B, C, D, ?, ?, ?, ?> toOctet() {
+    return new Octet<>(this.v0, this.v1, this.v2, this.v3, null, null, null, null);
+  }
+
+  @Override
+  public Nonet<A, B, C, D, ?, ?, ?, ?, ?> toNonet() {
+    return new Nonet<>(this.v0, this.v1, this.v2, this.v3, null, null, null, null, null);
+  }
+
+  @Override
+  public Decet<A, B, C, D, ?, ?, ?, ?, ?, ?> toDecet() {
+    return new Decet<>(this.v0, this.v1, this.v2, this.v3, null, null, null, null, null, null);
+  }
+
   public static <A, B, C, D> Quartet<A, B, C, D> of(
     A v0,
     B v1,

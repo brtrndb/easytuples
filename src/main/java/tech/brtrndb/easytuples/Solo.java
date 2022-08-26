@@ -25,6 +25,56 @@ public class Solo<A> extends Tuple implements Value0<A> {
     return Solo.SIZE;
   }
 
+  @Override
+  public Solo<A> toSolo() {
+    return new Solo<>(this.v0);
+  }
+
+  @Override
+  public Duo<A, ?> toDuo() {
+    return new Duo<>(this.v0, null);
+  }
+
+  @Override
+  public Trio<A, ?, ?> toTrio() {
+    return new Trio<>(this.v0, null, null);
+  }
+
+  @Override
+  public Quartet<A, ?, ?, ?> toQuartet() {
+    return new Quartet<>(this.v0, null, null, null);
+  }
+
+  @Override
+  public Quintet<A, ?, ?, ?, ?> toQuintet() {
+    return new Quintet<>(this.v0, null, null, null, null);
+  }
+
+  @Override
+  public Sextet<A, ?, ?, ?, ?, ?> toSextet() {
+    return new Sextet<>(this.v0, null, null, null, null, null);
+  }
+
+  @Override
+  public Septet<A, ?, ?, ?, ?, ?, ?> toSeptet() {
+    return new Septet<>(this.v0, null, null, null, null, null, null);
+  }
+
+  @Override
+  public Octet<A, ?, ?, ?, ?, ?, ?, ?> toOctet() {
+    return new Octet<>(this.v0, null, null, null, null, null, null, null);
+  }
+
+  @Override
+  public Nonet<A, ?, ?, ?, ?, ?, ?, ?, ?> toNonet() {
+    return new Nonet<>(this.v0, null, null, null, null, null, null, null, null);
+  }
+
+  @Override
+  public Decet<A, ?, ?, ?, ?, ?, ?, ?, ?, ?> toDecet() {
+    return new Decet<>(this.v0, null, null, null, null, null, null, null, null, null);
+  }
+
   public static <A> Solo<A> of(
     A v0
   ) {

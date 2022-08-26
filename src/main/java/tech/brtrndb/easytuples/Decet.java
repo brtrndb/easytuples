@@ -25,6 +25,11 @@ public class Decet<A, B, C, D, E, F, G, H, I, J> extends Nonet<A, B, C, D, E, F,
     return Decet.SIZE;
   }
 
+  @Override
+  public Decet<A, B, C, D, E, F, G, H, I, J> toDecet() {
+    return new Decet<>(this.v0, this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7, this.v8, this.v9);
+  }
+
   public static <A, B, C, D, E, F, G, H, I, J> Decet<A, B, C, D, E, F, G, H, I, J> of(
     A v0,
     B v1,

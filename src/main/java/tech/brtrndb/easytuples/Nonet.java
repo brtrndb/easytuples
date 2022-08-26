@@ -25,6 +25,16 @@ public class Nonet<A, B, C, D, E, F, G, H, I> extends Octet<A, B, C, D, E, F, G,
     return Nonet.SIZE;
   }
 
+  @Override
+  public Nonet<A, B, C, D, E, F, G, H, I> toNonet() {
+    return new Nonet<>(this.v0, this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7, this.v8);
+  }
+
+  @Override
+  public Decet<A, B, C, D, E, F, G, H, I, ?> toDecet() {
+    return new Decet<>(this.v0, this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7, this.v8, null);
+  }
+
   public static <A, B, C, D, E, F, G, H, I> Nonet<A, B, C, D, E, F, G, H, I> of(
     A v0,
     B v1,

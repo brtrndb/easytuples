@@ -25,6 +25,36 @@ public class Quintet<A, B, C, D, E> extends Quartet<A, B, C, D> implements Value
     return Quintet.SIZE;
   }
 
+  @Override
+  public Quintet<A, B, C, D, E> toQuintet() {
+    return new Quintet<>(this.v0, this.v1, this.v2, this.v3, this.v4);
+  }
+
+  @Override
+  public Sextet<A, B, C, D, E, ?> toSextet() {
+    return new Sextet<>(this.v0, this.v1, this.v2, this.v3, this.v4, null);
+  }
+
+  @Override
+  public Septet<A, B, C, D, E, ?, ?> toSeptet() {
+    return new Septet<>(this.v0, this.v1, this.v2, this.v3, this.v4, null, null);
+  }
+
+  @Override
+  public Octet<A, B, C, D, E, ?, ?, ?> toOctet() {
+    return new Octet<>(this.v0, this.v1, this.v2, this.v3, this.v4, null, null, null);
+  }
+
+  @Override
+  public Nonet<A, B, C, D, E, ?, ?, ?, ?> toNonet() {
+    return new Nonet<>(this.v0, this.v1, this.v2, this.v3, this.v4, null, null, null, null);
+  }
+
+  @Override
+  public Decet<A, B, C, D, E, ?, ?, ?, ?, ?> toDecet() {
+    return new Decet<>(this.v0, this.v1, this.v2, this.v3, this.v4, null, null, null, null, null);
+  }
+
   public static <A, B, C, D, E> Quintet<A, B, C, D, E> of(
     A v0,
     B v1,

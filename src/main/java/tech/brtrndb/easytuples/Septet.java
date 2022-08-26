@@ -25,6 +25,26 @@ public class Septet<A, B, C, D, E, F, G> extends Sextet<A, B, C, D, E, F> implem
     return Septet.SIZE;
   }
 
+  @Override
+  public Septet<A, B, C, D, E, F, G> toSeptet() {
+    return new Septet<>(this.v0, this.v1, this.v2, this.v3, this.v4, this.v5, this.v6);
+  }
+
+  @Override
+  public Octet<A, B, C, D, E, F, G, ?> toOctet() {
+    return new Octet<>(this.v0, this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, null);
+  }
+
+  @Override
+  public Nonet<A, B, C, D, E, F, G, ?, ?> toNonet() {
+    return new Nonet<>(this.v0, this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, null, null);
+  }
+
+  @Override
+  public Decet<A, B, C, D, E, F, G, ?, ?, ?> toDecet() {
+    return new Decet<>(this.v0, this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, null, null, null);
+  }
+
   public static <A, B, C, D, E, F, G> Septet<A, B, C, D, E, F, G> of(
     A v0,
     B v1,

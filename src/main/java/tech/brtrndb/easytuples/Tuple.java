@@ -49,6 +49,26 @@ public abstract class Tuple {
 
   public abstract int size();
 
+  public abstract <A> Solo<A> toSolo();
+
+  public abstract <A, B> Duo<A, B> toDuo();
+
+  public abstract <A, B, C> Trio<A, B, C> toTrio();
+
+  public abstract <A, B, C, D> Quartet<A, B, C, D> toQuartet();
+
+  public abstract <A, B, C, D, E> Quintet<A, B, C, D, E> toQuintet();
+
+  public abstract <A, B, C, D, E, F> Sextet<A, B, C, D, E, F> toSextet();
+
+  public abstract <A, B, C, D, E, F, G> Septet<A, B, C, D, E, F, G> toSeptet();
+
+  public abstract <A, B, C, D, E, F, G, H> Octet<A, B, C, D, E, F, G, H> toOctet();
+
+  public abstract <A, B, C, D, E, F, G, H, I> Nonet<A, B, C, D, E, F, G, H, I> toNonet();
+
+  public abstract <A, B, C, D, E, F, G, H, I, J> Decet<A, B, C, D, E, F, G, H, I, J> toDecet();
+
   @Override
   public String toString() {
     return this.getClass().getSimpleName() + Arrays.toString(this.array);
