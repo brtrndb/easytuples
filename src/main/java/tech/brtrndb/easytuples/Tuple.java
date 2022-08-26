@@ -3,6 +3,7 @@ package tech.brtrndb.easytuples;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +27,7 @@ public abstract class Tuple {
     return Optional.ofNullable(this.array[index]);
   }
 
-  public @Nullable Object getAt(int index) {
+  public @Nullable Object getAt(int index) throws IndexOutOfBoundsException {
     if ((index < 0) || (this.size() <= index)) {
       throw new IndexOutOfBoundsException("Index position %d out of range: index range is [0-%d]".formatted(index, this.size() - 1));
     }
@@ -43,7 +44,7 @@ public abstract class Tuple {
   }
 
   public <V> boolean containsAll(Collection<V> values) {
-    return this.list.contains(values);
+    return new HashSet<>(this.list).containsAll(values);
   }
 
   public abstract int size();
