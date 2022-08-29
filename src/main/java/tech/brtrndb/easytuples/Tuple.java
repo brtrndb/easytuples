@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.Spliterator;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 import org.jetbrains.annotations.Nullable;
 
-public abstract class Tuple {
+public abstract class Tuple implements Iterable<Object> {
 
   protected final Object[] array;
   private final List<Object> list;
@@ -72,6 +76,25 @@ public abstract class Tuple {
   @Override
   public String toString() {
     return this.getClass().getSimpleName() + Arrays.toString(this.array);
+  }
+
+  @Override
+  public void forEach(Consumer<? super Object> action) {
+    this.list.forEach(action);
+  }
+
+  @Override
+  public Spliterator<Object> spliterator() {
+    return this.list.spliterator();
+  }
+
+  @Override
+  public Iterator<Object> iterator() {
+    return this.list.iterator();
+  }
+
+  public Stream<Object> stream() {
+    return this.list.stream();
   }
 
   @Override
