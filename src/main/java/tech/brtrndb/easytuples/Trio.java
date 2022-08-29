@@ -1,9 +1,20 @@
 package tech.brtrndb.easytuples;
 
+import java.io.Serial;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.jetbrains.annotations.Nullable;
 import tech.brtrndb.easytuples.accessor.Value2;
 
+@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+@JsonPropertyOrder(value = {"v0", "v1", "v2"}, alphabetic = true)
 public class Trio<A, B, C> extends Duo<A, B> implements Value2<C> {
+
+  @Serial
+  private static final long serialVersionUID = 4022882046069686578L;
 
   public static final int SIZE = 3;
 
@@ -65,10 +76,11 @@ public class Trio<A, B, C> extends Duo<A, B> implements Value2<C> {
     return new Decet<>(this.v0, this.v1, this.v2, null, null, null, null, null, null, null);
   }
 
+  @JsonCreator
   public static <A, B, C> Trio<A, B, C> of(
-    A v0,
-    B v1,
-    C v2
+    @JsonProperty("v0") A v0,
+    @JsonProperty("v1") B v1,
+    @JsonProperty("v2") C v2
   ) {
     return new Trio<>(v0, v1, v2);
   }

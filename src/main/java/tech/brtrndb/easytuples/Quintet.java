@@ -1,9 +1,20 @@
 package tech.brtrndb.easytuples;
 
+import java.io.Serial;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.jetbrains.annotations.Nullable;
 import tech.brtrndb.easytuples.accessor.Value4;
 
+@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+@JsonPropertyOrder(value = {"v0", "v1", "v2", "v3", "v4"}, alphabetic = true)
 public class Quintet<A, B, C, D, E> extends Quartet<A, B, C, D> implements Value4<E> {
+
+  @Serial
+  private static final long serialVersionUID = 6808752956375374251L;
 
   public static final int SIZE = 5;
 
@@ -55,12 +66,13 @@ public class Quintet<A, B, C, D, E> extends Quartet<A, B, C, D> implements Value
     return new Decet<>(this.v0, this.v1, this.v2, this.v3, this.v4, null, null, null, null, null);
   }
 
+  @JsonCreator
   public static <A, B, C, D, E> Quintet<A, B, C, D, E> of(
-    A v0,
-    B v1,
-    C v2,
-    D v3,
-    E v4
+    @JsonProperty("v0") A v0,
+    @JsonProperty("v1") B v1,
+    @JsonProperty("v2") C v2,
+    @JsonProperty("v3") D v3,
+    @JsonProperty("v4") E v4
   ) {
     return new Quintet<>(v0, v1, v2, v3, v4);
   }

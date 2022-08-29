@@ -1,9 +1,20 @@
 package tech.brtrndb.easytuples;
 
+import java.io.Serial;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.jetbrains.annotations.Nullable;
 import tech.brtrndb.easytuples.accessor.Value0;
 
+@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+@JsonPropertyOrder(value = {"v0"}, alphabetic = true)
 public class Solo<A> extends Tuple implements Value0<A> {
+
+  @Serial
+  private static final long serialVersionUID = -3177451438396503520L;
 
   public static final int SIZE = 1;
 
@@ -75,8 +86,9 @@ public class Solo<A> extends Tuple implements Value0<A> {
     return new Decet<>(this.v0, null, null, null, null, null, null, null, null, null);
   }
 
+  @JsonCreator
   public static <A> Solo<A> of(
-    A v0
+    @JsonProperty("v0") A v0
   ) {
     return new Solo<>(v0);
   }

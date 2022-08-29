@@ -1,5 +1,7 @@
 package tech.brtrndb.easytuples;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -13,7 +15,10 @@ import java.util.stream.Stream;
 
 import org.jetbrains.annotations.Nullable;
 
-public abstract class Tuple implements Iterable<Object>, Comparable<Tuple> {
+public abstract class Tuple implements Iterable<Object>, Comparable<Tuple>, Serializable {
+
+  @Serial
+  private static final long serialVersionUID = -6874999003175259494L;
 
   protected final Object[] array;
   private final List<Object> list;
