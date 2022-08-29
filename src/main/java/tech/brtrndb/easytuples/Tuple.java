@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 
 import org.jetbrains.annotations.Nullable;
 
-public abstract class Tuple implements Iterable<Object> {
+public abstract class Tuple implements Iterable<Object>, Comparable<Tuple> {
 
   protected final Object[] array;
   private final List<Object> list;
@@ -95,6 +95,25 @@ public abstract class Tuple implements Iterable<Object> {
 
   public Stream<Object> stream() {
     return this.list.stream();
+  }
+
+  @Override
+  public int compareTo(Tuple t) {
+    int length = this.array.length;
+    Object[] otherValues = t.array;
+    int otherValuesLength = otherValues.length;
+
+    for (int i = 0; (i < length) && (i < otherValuesLength); i++) {
+      Comparable<Object> current = (Comparable<Object>) this.array[i];
+      Object otherCurrent = otherValues[i];
+
+      int comparison = current.compareTo(otherCurrent);
+      if (comparison != 0) {
+        return comparison;
+      }
+    }
+
+    return Integer.compare(length, otherValuesLength);
   }
 
   @Override
