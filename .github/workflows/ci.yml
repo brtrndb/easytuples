@@ -1,0 +1,51 @@
+name: 'Continuous Integration'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '**'        # Any branch.
+    tags:
+      - '!*'        # Exclude tags.
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: 'Build & Test'
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        java: [ '21' ]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: 'Checkout branch: ${{ github.REF }}'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.HEAD_REF }}
+
+      - name: 'Setup Java environment'
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
+          check-latest: false
+
+      - name: 'Setup Gradle environment'
+        uses: gradle/gradle-build-action@v2
+
+      - name: 'Validate Gradle Wrapper'
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: 'Compile classes'
+        run: ./gradlew --no-daemon --stacktrace classes
+
+      - name: 'Compile test classes'
+        run: ./gradlew --no-daemon --stacktrace testClasses
+
+      - name: 'Run tests'
+        run: ./gradlew --no-daemon --stacktrace check
