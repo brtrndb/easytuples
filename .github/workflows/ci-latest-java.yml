@@ -1,0 +1,42 @@
+name: 'R&D - Latest Java'
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 1' # Every Monday at 00:00.
+
+permissions:
+  contents: read
+
+jobs:
+  latest-java:
+    name: 'Latest Java ${{ matrix.java }}'
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        java: [ '21' ]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: 'Checkout branch: ${{ github.REF }}'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.HEAD_REF }}
+
+      - name: 'Setup latest Java ${{ matrix.java }} environment'
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
+          check-latest: true
+
+      - name: 'Setup Gradle environment'
+        uses: gradle/gradle-build-action@v2
+
+      - name: 'Validate Gradle Wrapper'
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: 'Build project'
+        run: ./gradlew --no-daemon --stacktrace build
