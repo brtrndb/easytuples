@@ -1,0 +1,43 @@
+readme:
+  - '**/README.md'
+
+license:
+  - LICENSE.md
+
+ide:
+  - '.idea/**/*'
+  - '.vscode/**/*'
+  - .editorconfig
+
+git:
+  - .gitignore
+  - .gitattributes
+
+github_actions:
+  - '.github/**/*'
+
+gradle:
+  - 'gradle/**/*'
+  - gradlew
+  - gradlew.bat
+  - build.gradle
+  - settings.gradle
+  - gradle.properties
+
+src:
+  - 'src/main/java/**/*.java'
+
+resources:
+  - 'src/main/resources/**/*'
+
+test:
+  - 'src/test/java/**/*.java'
+
+test_resources:
+  - 'src/test/resources/**/*'
+
+fixtures:
+  - 'src/testFixtures/java/**/*.java'
+
+fixtures_resources:
+  - 'src/testFixtures/resources/**/*'
