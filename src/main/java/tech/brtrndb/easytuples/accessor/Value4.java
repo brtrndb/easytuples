@@ -4,6 +4,6 @@ import org.jetbrains.annotations.Nullable;
 
 public interface Value4<V> {
 
-  public @Nullable V v4();
+    @Nullable V v4();
 
 }
