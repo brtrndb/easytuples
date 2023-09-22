@@ -9,11 +9,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-public class TupleTest {
+class TupleTest {
 
     @ParameterizedTest
     @MethodSource("tech.brtrndb.easytuples.TupleFixtures#provideTuple")
-    public void find_value_at_position(Tuple tuple) {
+    void find_value_at_position(Tuple tuple) {
         // Given:
         int size = tuple.size();
 
@@ -28,7 +28,7 @@ public class TupleTest {
 
     @ParameterizedTest
     @MethodSource("tech.brtrndb.easytuples.TupleFixtures#provideTuple")
-    public void find_value_at_negative_position_throws(Tuple tuple) {
+    void find_value_at_negative_position_throws(Tuple tuple) {
         // Given:
         // When:
         Optional<?> optional = tuple.findAt(-1);
@@ -39,7 +39,7 @@ public class TupleTest {
 
     @ParameterizedTest
     @MethodSource("tech.brtrndb.easytuples.TupleFixtures#provideTuple")
-    public void find_value_at_bigger_position_throws(Tuple tuple) {
+    void find_value_at_bigger_position_throws(Tuple tuple) {
         // Given:
         // When:
         Optional<?> optional = tuple.findAt(tuple.size());
@@ -50,7 +50,7 @@ public class TupleTest {
 
     @ParameterizedTest
     @MethodSource("tech.brtrndb.easytuples.TupleFixtures#provideTuple")
-    public void get_value_at_position(Tuple tuple) {
+    void get_value_at_position(Tuple tuple) {
         // Given:
         int size = tuple.size();
 
@@ -65,7 +65,7 @@ public class TupleTest {
 
     @ParameterizedTest
     @MethodSource("tech.brtrndb.easytuples.TupleFixtures#provideTuple")
-    public void get_value_at_negative_position_throws(Tuple tuple) {
+    void get_value_at_negative_position_throws(Tuple tuple) {
         // Given:
         // When:
         // Then:
@@ -75,7 +75,7 @@ public class TupleTest {
 
     @ParameterizedTest
     @MethodSource("tech.brtrndb.easytuples.TupleFixtures#provideTuple")
-    public void get_value_at_bigger_position_throws(Tuple tuple) {
+    void get_value_at_bigger_position_throws(Tuple tuple) {
         // Given:
         // When:
         // Then:
@@ -84,7 +84,7 @@ public class TupleTest {
     }
 
     @Test
-    public void contains_value() {
+    void contains_value() {
         // Given:
         String value = "value";
         Tuple tuple = Trio.of(12, "value", true);
@@ -97,7 +97,7 @@ public class TupleTest {
     }
 
     @Test
-    public void does_not_contain_value() {
+    void does_not_contain_value() {
         // Given:
         String value = "value";
         Tuple tuple = Trio.of(12, new Object(), true);
@@ -111,7 +111,7 @@ public class TupleTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedSize")
-    public void expect_correct_size(Tuple tuple, int expectedSize) {
+    void expect_correct_size(Tuple tuple, int expectedSize) {
         // Given:
         // When:
         int size = tuple.size();
@@ -121,7 +121,7 @@ public class TupleTest {
     }
 
     @Test
-    public void equals_is_reflexive() {
+    void equals_is_reflexive() {
         // Given:
         Tuple tuple = Trio.of(12, true, "value");
 
@@ -133,7 +133,7 @@ public class TupleTest {
     }
 
     @Test
-    public void equals_is_symmetric() {
+    void equals_is_symmetric() {
         // Given:
         Tuple tuple0 = Trio.of(12, true, "value");
         Tuple tuple1 = Trio.of(12, true, "value");
@@ -147,7 +147,7 @@ public class TupleTest {
     }
 
     @Test
-    public void equals_is_transitive() {
+    void equals_is_transitive() {
         // Given:
         Tuple tuple0 = Trio.of(12, true, "value");
         Tuple tuple1 = Trio.of(12, true, "value");
@@ -164,7 +164,7 @@ public class TupleTest {
     }
 
     @Test
-    public void equals_with_null() {
+    void equals_with_null() {
         // Given:
         Tuple tuple = Trio.of(12, true, "value");
 

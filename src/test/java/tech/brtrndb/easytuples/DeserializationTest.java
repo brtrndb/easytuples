@@ -9,11 +9,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-public class DeserializationTest {
+class DeserializationTest {
 
     @ParameterizedTest
     @MethodSource("provideJsonAndExpectedTuple")
-    public void deserialization_test(String json, Tuple expectedTuple) throws JsonProcessingException {
+    void deserialization_test(String json, Tuple expectedTuple) throws JsonProcessingException {
         // Given:
         ObjectMapper mapper = new ObjectMapper();
 

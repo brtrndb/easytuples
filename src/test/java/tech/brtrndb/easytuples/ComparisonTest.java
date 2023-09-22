@@ -7,11 +7,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-public class ComparisonTest {
+class ComparisonTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedComparisonResult")
-    public void compare_tuple0_to_tuple1(Tuple tuple0, Tuple tuple1, int expectedComparisonResult) {
+    void compare_tuple0_to_tuple1(Tuple tuple0, Tuple tuple1, int expectedComparisonResult) {
         // Given:
         // When:
         int result = tuple0.compareTo(tuple1);
@@ -22,7 +22,7 @@ public class ComparisonTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedComparisonResult")
-    public void compare_tuple1_to_tuple0(Tuple tuple0, Tuple tuple1, int expectedComparisonResult) {
+    void compare_tuple1_to_tuple0(Tuple tuple0, Tuple tuple1, int expectedComparisonResult) {
         // Given:
         // When:
         int result = tuple1.compareTo(tuple0);

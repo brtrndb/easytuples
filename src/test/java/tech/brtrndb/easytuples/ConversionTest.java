@@ -7,11 +7,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-public class ConversionTest {
+class ConversionTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedSolo")
-    public void convert_tuple_to_solo(Tuple tuple, Solo<?> expected) {
+    void convert_tuple_to_solo(Tuple tuple, Solo<?> expected) {
         // Given:
         // When:
         Solo<?> solo = tuple.toSolo();
@@ -22,7 +22,7 @@ public class ConversionTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedDuo")
-    public void convert_tuple_to_duo(Tuple tuple, Duo<?, ?> expected) {
+    void convert_tuple_to_duo(Tuple tuple, Duo<?, ?> expected) {
         // Given:
         // When:
         Duo<?, ?> duo = tuple.toDuo();
@@ -33,7 +33,7 @@ public class ConversionTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedTrio")
-    public void convert_tuple_to_trio(Tuple tuple, Trio<?, ?, ?> expected) {
+    void convert_tuple_to_trio(Tuple tuple, Trio<?, ?, ?> expected) {
         // Given:
         // When:
         Trio<?, ?, ?> trio = tuple.toTrio();
@@ -44,7 +44,7 @@ public class ConversionTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedQuartet")
-    public void convert_tuple_to_quartet(Tuple tuple, Quartet<?, ?, ?, ?> expected) {
+    void convert_tuple_to_quartet(Tuple tuple, Quartet<?, ?, ?, ?> expected) {
         // Given:
         // When:
         Quartet<?, ?, ?, ?> quartet = tuple.toQuartet();
@@ -55,7 +55,7 @@ public class ConversionTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedQuintet")
-    public void convert_tuple_to_quintet(Tuple tuple, Quintet<?, ?, ?, ?, ?> expected) {
+    void convert_tuple_to_quintet(Tuple tuple, Quintet<?, ?, ?, ?, ?> expected) {
         // Given:
         // When:
         Quintet<?, ?, ?, ?, ?> quintet = tuple.toQuintet();
@@ -66,7 +66,7 @@ public class ConversionTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedSextet")
-    public void convert_tuple_to_sextet(Tuple tuple, Sextet<?, ?, ?, ?, ?, ?> expected) {
+    void convert_tuple_to_sextet(Tuple tuple, Sextet<?, ?, ?, ?, ?, ?> expected) {
         // Given:
         // When:
         Sextet<?, ?, ?, ?, ?, ?> sextet = tuple.toSextet();
@@ -77,7 +77,7 @@ public class ConversionTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedSeptet")
-    public void convert_tuple_to_septet(Tuple tuple, Septet<?, ?, ?, ?, ?, ?, ?> expected) {
+    void convert_tuple_to_septet(Tuple tuple, Septet<?, ?, ?, ?, ?, ?, ?> expected) {
         // Given:
         // When:
         Septet<?, ?, ?, ?, ?, ?, ?> septet = tuple.toSeptet();
@@ -88,7 +88,7 @@ public class ConversionTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedOctet")
-    public void convert_tuple_to_octet(Tuple tuple, Octet<?, ?, ?, ?, ?, ?, ?, ?> expected) {
+    void convert_tuple_to_octet(Tuple tuple, Octet<?, ?, ?, ?, ?, ?, ?, ?> expected) {
         // Given:
         // When:
         Octet<?, ?, ?, ?, ?, ?, ?, ?> octet = tuple.toOctet();
@@ -99,7 +99,7 @@ public class ConversionTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedNonet")
-    public void convert_tuple_to_nonet(Tuple tuple, Nonet<?, ?, ?, ?, ?, ?, ?, ?, ?> expected) {
+    void convert_tuple_to_nonet(Tuple tuple, Nonet<?, ?, ?, ?, ?, ?, ?, ?, ?> expected) {
         // Given:
         // When:
         Nonet<?, ?, ?, ?, ?, ?, ?, ?, ?> nonet = tuple.toNonet();
@@ -110,7 +110,7 @@ public class ConversionTest {
 
     @ParameterizedTest
     @MethodSource("provideTupleAndExpectedDecet")
-    public void convert_tuple_to_decet(Tuple tuple, Decet<?, ?, ?, ?, ?, ?, ?, ?, ?, ?> expected) {
+    void convert_tuple_to_decet(Tuple tuple, Decet<?, ?, ?, ?, ?, ?, ?, ?, ?, ?> expected) {
         // Given:
         // When:
         Decet<?, ?, ?, ?, ?, ?, ?, ?, ?, ?> decet = tuple.toDecet();
