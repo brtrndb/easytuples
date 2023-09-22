@@ -1,20 +1,18 @@
 package tech.brtrndb.easytuples;
 
-import java.util.Optional;
-import java.util.stream.Stream;
-
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import tech.brtrndb.easytuples.fixture.TupleFixtures;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class TupleTest {
 
     @ParameterizedTest
-    @MethodSource("tech.brtrndb.easytuples.fixture.TupleFixtures#provideTuple")
+    @MethodSource("tech.brtrndb.easytuples.TupleFixtures#provideTuple")
     public void find_value_at_position(Tuple tuple) {
         // Given:
         int size = tuple.size();
@@ -29,7 +27,7 @@ public class TupleTest {
     }
 
     @ParameterizedTest
-    @MethodSource("tech.brtrndb.easytuples.fixture.TupleFixtures#provideTuple")
+    @MethodSource("tech.brtrndb.easytuples.TupleFixtures#provideTuple")
     public void find_value_at_negative_position_throws(Tuple tuple) {
         // Given:
         // When:
@@ -40,7 +38,7 @@ public class TupleTest {
     }
 
     @ParameterizedTest
-    @MethodSource("tech.brtrndb.easytuples.fixture.TupleFixtures#provideTuple")
+    @MethodSource("tech.brtrndb.easytuples.TupleFixtures#provideTuple")
     public void find_value_at_bigger_position_throws(Tuple tuple) {
         // Given:
         // When:
@@ -51,7 +49,7 @@ public class TupleTest {
     }
 
     @ParameterizedTest
-    @MethodSource("tech.brtrndb.easytuples.fixture.TupleFixtures#provideTuple")
+    @MethodSource("tech.brtrndb.easytuples.TupleFixtures#provideTuple")
     public void get_value_at_position(Tuple tuple) {
         // Given:
         int size = tuple.size();
@@ -66,7 +64,7 @@ public class TupleTest {
     }
 
     @ParameterizedTest
-    @MethodSource("tech.brtrndb.easytuples.fixture.TupleFixtures#provideTuple")
+    @MethodSource("tech.brtrndb.easytuples.TupleFixtures#provideTuple")
     public void get_value_at_negative_position_throws(Tuple tuple) {
         // Given:
         // When:
@@ -76,7 +74,7 @@ public class TupleTest {
     }
 
     @ParameterizedTest
-    @MethodSource("tech.brtrndb.easytuples.fixture.TupleFixtures#provideTuple")
+    @MethodSource("tech.brtrndb.easytuples.TupleFixtures#provideTuple")
     public void get_value_at_bigger_position_throws(Tuple tuple) {
         // Given:
         // When:

@@ -1,4 +1,4 @@
-package tech.brtrndb.easytuples.fixture;
+package tech.brtrndb.easytuples;
 
 import java.util.stream.Stream;
 
