@@ -10,6 +10,16 @@ import org.jetbrains.annotations.Nullable;
 
 import tech.brtrndb.easytuples.accessor.Value3;
 
+/**
+ * Tuple with four values.
+ *
+ * @param <A>
+ * @param <B>
+ * @param <C>
+ * @param <D>
+ *
+ * @author Bertrand B.
+ */
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 @JsonPropertyOrder(value = {"v0", "v1", "v2", "v3"}, alphabetic = true)
 public class Quartet<A, B, C, D> extends Trio<A, B, C> implements Value3<D> {
@@ -72,6 +82,24 @@ public class Quartet<A, B, C, D> extends Trio<A, B, C> implements Value3<D> {
         return new Decet<>(this.v0, this.v1, this.v2, this.v3, null, null, null, null, null, null);
     }
 
+    /**
+     * Create a {@link Quartet} from values.
+     *
+     * @param v0
+     *         Value at index 0.
+     * @param v1
+     *         Value at index 1.
+     * @param v2
+     *         Value at index 2.
+     * @param v3
+     *         Value at index 3.
+     * @param <A>
+     * @param <B>
+     * @param <C>
+     * @param <D>
+     *
+     * @return A {@link Quartet}.
+     */
     @JsonCreator
     public static <A, B, C, D> Quartet<A, B, C, D> of(
             @JsonProperty("v0") A v0,

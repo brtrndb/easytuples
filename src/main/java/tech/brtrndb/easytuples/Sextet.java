@@ -10,6 +10,18 @@ import org.jetbrains.annotations.Nullable;
 
 import tech.brtrndb.easytuples.accessor.Value5;
 
+/**
+ * Tuple with six values.
+ *
+ * @param <A>
+ * @param <B>
+ * @param <C>
+ * @param <D>
+ * @param <E>
+ * @param <F>
+ *
+ * @author Bertrand B.
+ */
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 @JsonPropertyOrder(value = {"v0", "v1", "v2", "v3", "v4", "v5"}, alphabetic = true)
 public class Sextet<A, B, C, D, E, F> extends Quintet<A, B, C, D, E> implements Value5<F> {
@@ -62,6 +74,30 @@ public class Sextet<A, B, C, D, E, F> extends Quintet<A, B, C, D, E> implements 
         return new Decet<>(this.v0, this.v1, this.v2, this.v3, this.v4, this.v5, null, null, null, null);
     }
 
+    /**
+     * Create a {@link Sextet} from values.
+     *
+     * @param v0
+     *         Value at index 0.
+     * @param v1
+     *         Value at index 1.
+     * @param v2
+     *         Value at index 2.
+     * @param v3
+     *         Value at index 3.
+     * @param v4
+     *         Value at index 4.
+     * @param v5
+     *         Value at index 5.
+     * @param <A>
+     * @param <B>
+     * @param <C>
+     * @param <D>
+     * @param <E>
+     * @param <F>
+     *
+     * @return A {@link Sextet}.
+     */
     @JsonCreator
     public static <A, B, C, D, E, F> Sextet<A, B, C, D, E, F> of(
             @JsonProperty("v0") A v0,

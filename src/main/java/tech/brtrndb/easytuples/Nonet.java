@@ -10,6 +10,21 @@ import org.jetbrains.annotations.Nullable;
 
 import tech.brtrndb.easytuples.accessor.Value8;
 
+/**
+ * Tuple with nine values.
+ *
+ * @param <A>
+ * @param <B>
+ * @param <C>
+ * @param <D>
+ * @param <E>
+ * @param <F>
+ * @param <G>
+ * @param <H>
+ * @param <I>
+ *
+ * @author Bertrand B.
+ */
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 @JsonPropertyOrder(value = {"v0", "v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8"}, alphabetic = true)
 public class Nonet<A, B, C, D, E, F, G, H, I> extends Octet<A, B, C, D, E, F, G, H> implements Value8<I> {
@@ -47,6 +62,39 @@ public class Nonet<A, B, C, D, E, F, G, H, I> extends Octet<A, B, C, D, E, F, G,
         return new Decet<>(this.v0, this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7, this.v8, null);
     }
 
+    /**
+     * Create a {@link Nonet} from values.
+     *
+     * @param v0
+     *         Value at index 0.
+     * @param v1
+     *         Value at index 1.
+     * @param v2
+     *         Value at index 2.
+     * @param v3
+     *         Value at index 3.
+     * @param v4
+     *         Value at index 4.
+     * @param v5
+     *         Value at index 5.
+     * @param v6
+     *         Value at index 6.
+     * @param v7
+     *         Value at index 7.
+     * @param v8
+     *         Value at index 8.
+     * @param <A>
+     * @param <B>
+     * @param <C>
+     * @param <D>
+     * @param <E>
+     * @param <F>
+     * @param <G>
+     * @param <H>
+     * @param <I>
+     *
+     * @return A {@link Nonet}.
+     */
     @JsonCreator
     public static <A, B, C, D, E, F, G, H, I> Nonet<A, B, C, D, E, F, G, H, I> of(
             @JsonProperty("v0") A v0,

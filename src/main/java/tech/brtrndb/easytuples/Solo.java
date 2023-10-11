@@ -10,6 +10,13 @@ import org.jetbrains.annotations.Nullable;
 
 import tech.brtrndb.easytuples.accessor.Value0;
 
+/**
+ * Tuple with single value.
+ *
+ * @param <A>
+ *
+ * @author Bertrand B.
+ */
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 @JsonPropertyOrder(value = {"v0"}, alphabetic = true)
 public class Solo<A> extends Tuple implements Value0<A> {
@@ -87,6 +94,15 @@ public class Solo<A> extends Tuple implements Value0<A> {
         return new Decet<>(this.v0, null, null, null, null, null, null, null, null, null);
     }
 
+    /**
+     * Create a {@link Solo} from single value.
+     *
+     * @param v0
+     *         Value at index 0.
+     * @param <A>
+     *
+     * @return A {@link Solo}.
+     */
     @JsonCreator
     public static <A> Solo<A> of(
             @JsonProperty("v0") A v0

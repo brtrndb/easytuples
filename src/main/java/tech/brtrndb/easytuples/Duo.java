@@ -10,6 +10,14 @@ import org.jetbrains.annotations.Nullable;
 
 import tech.brtrndb.easytuples.accessor.Value1;
 
+/**
+ * Tuple with two values.
+ *
+ * @param <A>
+ * @param <B>
+ *
+ * @author Bertrand B.
+ */
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 @JsonPropertyOrder(value = {"v0", "v1"}, alphabetic = true)
 public class Duo<A, B> extends Solo<A> implements Value1<B> {
@@ -82,6 +90,18 @@ public class Duo<A, B> extends Solo<A> implements Value1<B> {
         return new Decet<>(this.v0, this.v1, null, null, null, null, null, null, null, null);
     }
 
+    /**
+     * Create a {@link Duo} from values.
+     *
+     * @param v0
+     *         Value at index 0.
+     * @param v1
+     *         Value at index 1.
+     * @param <A>
+     * @param <B>
+     *
+     * @return A {@link Duo}.
+     */
     @JsonCreator
     public static <A, B> Duo<A, B> of(
             @JsonProperty("v0") A v0,

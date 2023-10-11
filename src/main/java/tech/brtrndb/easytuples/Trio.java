@@ -10,6 +10,15 @@ import org.jetbrains.annotations.Nullable;
 
 import tech.brtrndb.easytuples.accessor.Value2;
 
+/**
+ * Tuple with three values.
+ *
+ * @param <A>
+ * @param <B>
+ * @param <C>
+ *
+ * @author Bertrand B.
+ */
 @JsonFormat(shape = JsonFormat.Shape.ARRAY)
 @JsonPropertyOrder(value = {"v0", "v1", "v2"}, alphabetic = true)
 public class Trio<A, B, C> extends Duo<A, B> implements Value2<C> {
@@ -77,6 +86,21 @@ public class Trio<A, B, C> extends Duo<A, B> implements Value2<C> {
         return new Decet<>(this.v0, this.v1, this.v2, null, null, null, null, null, null, null);
     }
 
+    /**
+     * Create a {@link Trio} from values.
+     *
+     * @param v0
+     *         Value at index 0.
+     * @param v1
+     *         Value at index 1.
+     * @param v2
+     *         Value at index 2.
+     * @param <A>
+     * @param <B>
+     * @param <C>
+     *
+     * @return A {@link Trio}.
+     */
     @JsonCreator
     public static <A, B, C> Trio<A, B, C> of(
             @JsonProperty("v0") A v0,
