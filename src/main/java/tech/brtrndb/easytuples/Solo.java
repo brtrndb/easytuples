@@ -29,7 +29,11 @@ public class Solo<A> extends Tuple implements Value0<A> {
     protected final A v0;
 
     protected Solo(A v0) {
-        super();
+        this(SIZE, v0);
+    }
+
+    protected Solo(int size, A v0) {
+        super(size);
         this.v0 = v0;
         this.array[0] = this.v0;
     }

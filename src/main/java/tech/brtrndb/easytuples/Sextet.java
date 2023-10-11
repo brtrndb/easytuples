@@ -34,7 +34,11 @@ public class Sextet<A, B, C, D, E, F> extends Quintet<A, B, C, D, E> implements 
     protected final F v5;
 
     protected Sextet(A v0, B v1, C v2, D v3, E v4, F v5) {
-        super(v0, v1, v2, v3, v4);
+        this(SIZE, v0, v1, v2, v3, v4, v5);
+    }
+
+    protected Sextet(int size, A v0, B v1, C v2, D v3, E v4, F v5) {
+        super(size, v0, v1, v2, v3, v4);
         this.v5 = v5;
         this.array[5] = this.v5;
     }

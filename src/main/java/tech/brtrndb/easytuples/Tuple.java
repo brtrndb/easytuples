@@ -23,8 +23,8 @@ public abstract class Tuple implements Iterable<Object>, Comparable<Tuple>, Seri
     protected final Object[]     array;
     private final   List<Object> list;
 
-    protected Tuple() {
-        this.array = new Object[this.size()];
+    protected Tuple(int size) {
+        this.array = new Object[size];
         this.list = Arrays.asList(this.array);
     }
 

@@ -31,7 +31,11 @@ public class Trio<A, B, C> extends Duo<A, B> implements Value2<C> {
     protected final C v2;
 
     protected Trio(A v0, B v1, C v2) {
-        super(v0, v1);
+        this(SIZE, v0, v1, v2);
+    }
+
+    protected Trio(int size, A v0, B v1, C v2) {
+        super(size, v0, v1);
         this.v2 = v2;
         this.array[2] = this.v2;
     }

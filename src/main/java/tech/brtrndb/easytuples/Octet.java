@@ -36,7 +36,11 @@ public class Octet<A, B, C, D, E, F, G, H> extends Septet<A, B, C, D, E, F, G> i
     protected final H v7;
 
     protected Octet(A v0, B v1, C v2, D v3, E v4, F v5, G v6, H v7) {
-        super(v0, v1, v2, v3, v4, v5, v6);
+        this(SIZE, v0, v1, v2, v3, v4, v5, v6, v7);
+    }
+
+    protected Octet(int size, A v0, B v1, C v2, D v3, E v4, F v5, G v6, H v7) {
+        super(size, v0, v1, v2, v3, v4, v5, v6);
         this.v7 = v7;
         this.array[7] = this.v7;
     }

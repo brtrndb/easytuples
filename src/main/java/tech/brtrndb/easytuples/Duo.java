@@ -30,7 +30,11 @@ public class Duo<A, B> extends Solo<A> implements Value1<B> {
     protected final B v1;
 
     protected Duo(A v0, B v1) {
-        super(v0);
+        this(SIZE, v0, v1);
+    }
+
+    protected Duo(int size, A v0, B v1) {
+        super(size, v0);
         this.v1 = v1;
         this.array[1] = this.v1;
     }

@@ -33,7 +33,11 @@ public class Quintet<A, B, C, D, E> extends Quartet<A, B, C, D> implements Value
     protected final E v4;
 
     protected Quintet(A v0, B v1, C v2, D v3, E v4) {
-        super(v0, v1, v2, v3);
+        this(SIZE, v0, v1, v2, v3, v4);
+    }
+
+    protected Quintet(int size, A v0, B v1, C v2, D v3, E v4) {
+        super(size, v0, v1, v2, v3);
         this.v4 = v4;
         this.array[4] = this.v4;
     }

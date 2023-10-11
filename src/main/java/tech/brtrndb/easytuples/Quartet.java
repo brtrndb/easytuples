@@ -32,7 +32,11 @@ public class Quartet<A, B, C, D> extends Trio<A, B, C> implements Value3<D> {
     protected final D v3;
 
     protected Quartet(A v0, B v1, C v2, D v3) {
-        super(v0, v1, v2);
+        this(SIZE, v0, v1, v2, v3);
+    }
+
+    protected Quartet(int size, A v0, B v1, C v2, D v3) {
+        super(size, v0, v1, v2);
         this.v3 = v3;
         this.array[3] = this.v3;
     }

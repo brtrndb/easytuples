@@ -38,7 +38,11 @@ public class Decet<A, B, C, D, E, F, G, H, I, J> extends Nonet<A, B, C, D, E, F,
     protected final J v9;
 
     protected Decet(A v0, B v1, C v2, D v3, E v4, F v5, G v6, H v7, I v8, J v9) {
-        super(v0, v1, v2, v3, v4, v5, v6, v7, v8);
+        this(SIZE, v0, v1, v2, v3, v4, v5, v6, v7, v8, v9);
+    }
+
+    protected Decet(int size, A v0, B v1, C v2, D v3, E v4, F v5, G v6, H v7, I v8, J v9) {
+        super(size, v0, v1, v2, v3, v4, v5, v6, v7, v8);
         this.v9 = v9;
         this.array[9] = this.v9;
     }

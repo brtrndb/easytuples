@@ -35,7 +35,11 @@ public class Septet<A, B, C, D, E, F, G> extends Sextet<A, B, C, D, E, F> implem
     protected final G v6;
 
     protected Septet(A v0, B v1, C v2, D v3, E v4, F v5, G v6) {
-        super(v0, v1, v2, v3, v4, v5);
+        this(SIZE, v0, v1, v2, v3, v4, v5, v6);
+    }
+
+    protected Septet(int size, A v0, B v1, C v2, D v3, E v4, F v5, G v6) {
+        super(size, v0, v1, v2, v3, v4, v5);
         this.v6 = v6;
         this.array[6] = this.v6;
     }
