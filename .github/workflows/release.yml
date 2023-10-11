@@ -1,0 +1,52 @@
+name: 'Release'
+
+on:
+  release:
+    types: [ created ]
+
+jobs:
+  publish:
+    name: 'Release new version'
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        java: [ '21' ]
+
+    runs-on: ${{ matrix.os }}
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: 'Checkout branch: ${{ github.REF }}'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.HEAD_REF }}
+
+      - name: 'Setup Java ${{ matrix.java }} environment'
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
+          check-latest: false
+
+      - name: 'Validate Gradle Wrapper'
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: 'Build project'
+        run: ./gradlew --no-daemon --stacktrace build
+
+      - name: 'Setup to version ${{ github.event.release.TAG_NAME }}'
+        run: |
+          sed -i "/^project_version=./c\project_version=$TAG" gradle.properties
+        env:
+          TAG: ${{ github.event.release.TAG_NAME }}
+
+      - name: 'Publish package ${{ github.event.release.TAG_NAME }}'
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
