@@ -288,16 +288,16 @@ public abstract class Tuple implements Iterable<Object>, Comparable<Tuple>, Seri
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
 
-        if ((o == null) || (this.getClass() != o.getClass())) {
+        if ((obj == null) || (this.getClass() != obj.getClass())) {
             return false;
         }
 
-        Tuple tuple = (Tuple) o;
+        Tuple tuple = (Tuple) obj;
 
         return Arrays.equals(this.array, tuple.array);
     }
