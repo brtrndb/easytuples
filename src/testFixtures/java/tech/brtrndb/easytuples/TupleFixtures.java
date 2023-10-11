@@ -17,6 +17,9 @@ import tech.brtrndb.easytuples.Trio;
 
 public final class TupleFixtures {
 
+    private TupleFixtures() {
+    }
+
     public static final Solo<String>                                                                            SOLO    = Solo.of("v0");
     public static final Duo<String, Boolean>                                                                    DUO     = Duo.of("v0", true);
     public static final Trio<String, Boolean, Integer>                                                          TRIO    = Trio.of("v0", true, 12);
