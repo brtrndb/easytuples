@@ -4,17 +4,6 @@ import java.util.stream.Stream;
 
 import org.junit.jupiter.params.provider.Arguments;
 
-import tech.brtrndb.easytuples.Decet;
-import tech.brtrndb.easytuples.Duo;
-import tech.brtrndb.easytuples.Nonet;
-import tech.brtrndb.easytuples.Octet;
-import tech.brtrndb.easytuples.Quartet;
-import tech.brtrndb.easytuples.Quintet;
-import tech.brtrndb.easytuples.Septet;
-import tech.brtrndb.easytuples.Sextet;
-import tech.brtrndb.easytuples.Solo;
-import tech.brtrndb.easytuples.Trio;
-
 public final class TupleFixtures {
 
     private TupleFixtures() {
