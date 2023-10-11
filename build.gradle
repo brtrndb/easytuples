@@ -13,7 +13,7 @@ repositories {
 }
 
 group 'tech.brtrndb'
-version 'v0.0.0'
+version "${project_version}"
 description "Easy Tuples in Java"
 
 ext {
