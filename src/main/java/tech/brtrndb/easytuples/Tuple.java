@@ -24,6 +24,10 @@ public abstract class Tuple implements Iterable<Object>, Comparable<Tuple>, Seri
     private final   List<Object> list;
 
     protected Tuple(int size) {
+        if (size <= 0) {
+            throw new IllegalArgumentException("Tuple size must be greater than 0.");
+        }
+
         this.array = new Object[size];
         this.list = Arrays.asList(this.array);
     }
