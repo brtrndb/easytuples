@@ -16,24 +16,34 @@ group 'tech.brtrndb'
 version 'v0.0.0'
 description "Easy Tuples in Java"
 
+ext {
+    // Dependency versions.
+    assertj_version = '3.24.2'
+    jackson_annotation_version = '2.15.2'
+    jetbrains_annotation_version = '24.0.1'
+    junit_version = '5.10.0'
+}
+
 dependencies {
     // Main dependencies (Api, Implementation, Compile, Runtime, Annotation).
-    implementation("com.fasterxml.jackson.core:jackson-annotations:2.15.2")
-    compileOnly("org.jetbrains:annotations:24.0.1")
-    annotationProcessor("org.jetbrains:annotations:24.0.1")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:${jackson_annotation_version}")
+
+    compileOnly("org.jetbrains:annotations:${jetbrains_annotation_version}")
+
+    annotationProcessor("org.jetbrains:annotations:${jetbrains_annotation_version}")
 
     // Dev dependencies (Api, Implementation, Compile, Runtime, Annotation).
 
     // Test dependencies (Api, Implementation, Compile, Runtime, Annotation).
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.0")
-    testImplementation("org.assertj:assertj-core:3.24.2")
-    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junit_version}")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:${junit_version}")
+    testImplementation("org.assertj:assertj-core:${assertj_version}")
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:${jackson_annotation_version}")
 
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junit_version}")
 
     // Test fixtures dependencies (Api, Implementation, Compile, Runtime, Annotation).
-    testFixturesImplementation("org.junit.jupiter:junit-jupiter-params:5.10.0")
+    testFixturesImplementation("org.junit.jupiter:junit-jupiter-params:${junit_version}")
 }
 
 java {
