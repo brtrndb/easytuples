@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"tech.brtrndb.easytuples"},{"l":"tech.brtrndb.easytuples.accessor"}];updateSearchResults();
