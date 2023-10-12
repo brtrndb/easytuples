@@ -1,0 +1,57 @@
+name: 'Deploy Javadoc'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  javadoc:
+    name: 'Publish JavaDoc'
+
+    concurrency: ci-${{ github.ref }}
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        java: [ '21' ]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: 'Checkout branch: ${{ github.REF }}'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.HEAD_REF }}
+
+      - name: 'Setup Java environment'
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
+          check-latest: false
+
+      - name: 'Setup Gradle environment'
+        uses: gradle/gradle-build-action@v2
+
+      - name: 'Validate Gradle Wrapper'
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: 'Build project'
+        run: ./gradlew --no-daemon --stacktrace build
+
+      - name: 'Build javadoc'
+        run: ./gradlew --no-daemon --stacktrace javadoc
+
+      - name: 'Publish javadoc'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build/docs/javadoc
+          branch: gh-pages
+          clean: true
+          clean-exclude: |
+            README.md
